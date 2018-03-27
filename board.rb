@@ -29,7 +29,11 @@ class Board
   end
 
   def col_win?(marker)
-
+    (0...WIDTH).any? do |col|
+      @grid.all? do |row|
+        row[col] == marker
+      end
+    end
   end
 
   def dia_win?(marker)
@@ -38,9 +42,10 @@ class Board
 end
 
 a = Board.new
+a.grid[1][1] = :x
 a.grid[2][1] = :x
-a.grid[2][0] = :x
-a.grid[2][2] = :j
+a.grid[0][1] = :x
 a.print_grid
 
 p a.row_win?(:x)
+p a.col_win?(:x)
