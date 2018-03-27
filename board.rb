@@ -37,15 +37,25 @@ class Board
   end
 
   def dia_win?(marker)
+    [ lambda { |x| x},
+      lambda { |x| -(x + 1)}
+    ].any? do |proc|
+      (0...WIDTH).all? do |index|
+        # sign > 0 ? second_index = index : second_index = sign * (index + 1)
 
+        @grid[index][proc.call(index)] == marker
+      end
+    end
   end
+
 end
 
 a = Board.new
-a.grid[1][1] = :x
-a.grid[2][1] = :x
-a.grid[0][1] = :x
+a.grid[0][-1] = :x
+a.grid[1][-2] = :x
+a.grid[2][-3] = :x
 a.print_grid
 
 p a.row_win?(:x)
 p a.col_win?(:x)
+p a.dia_win?(:x)
