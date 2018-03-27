@@ -37,7 +37,7 @@ class Board
   end
 
   def dia_win?(marker)
-    [ lambda { |x| x},
+    [ lambda { |x| x },
       lambda { |x| -(x + 1)}
     ].any? do |proc|
       (0...WIDTH).all? do |index|
@@ -48,12 +48,19 @@ class Board
     end
   end
 
+  def [](y,x)
+    @grid[y][x]
+  end
+
+  def []=(y,x,val)
+    @grid[y][x] = val
+  end
 end
 
 a = Board.new
-a.grid[0][-1] = :x
-a.grid[1][-2] = :x
-a.grid[2][-3] = :x
+a[0,0] = :x
+a[1,1] = :x
+a[2,2] = :x
 a.print_grid
 
 p a.row_win?(:x)
