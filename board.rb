@@ -57,12 +57,12 @@ class Board
   end
 end
 
-a = Board.new
-a[0,0] = :x
-a[1,1] = :x
-a[2,2] = :x
-a.print_grid
-
-p a.row_win?(:x)
-p a.col_win?(:x)
-p a.dia_win?(:x)
+# a = Board.new
+# a[0,0] = :x
+# a[1,1] = :x
+# a[2,2] = :x
+# a.print_grid
+#
+# p a.row_win?(:x)
+# p a.col_win?(:x)
+# p a.dia_win?(:x)
