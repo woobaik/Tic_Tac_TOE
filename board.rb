@@ -20,8 +20,27 @@ class Board
     puts
   end
 
+  def row_win?(marker)
+    @grid.any? do |row|
+      row.all? do |cell|
+        cell == marker
+      end
+    end
+  end
+
+  def col_win?(marker)
+
+  end
+
+  def dia_win?(marker)
+
+  end
 end
 
 a = Board.new
 a.grid[2][1] = :x
+a.grid[2][0] = :x
+a.grid[2][2] = :j
 a.print_grid
+
+p a.row_win?(:x)
