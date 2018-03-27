@@ -20,6 +20,10 @@ class Board
     puts
   end
 
+  def win?(marker)
+    row_win?(marker) || col_win?(marker) || dia_win?(marker)
+  end
+
   def row_win?(marker)
     @grid.any? do |row|
       row.all? do |cell|
@@ -56,6 +60,7 @@ class Board
     @grid[y][x] = val
   end
 end
+
 
 # a = Board.new
 # a[0,0] = :x
