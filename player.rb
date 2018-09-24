@@ -38,7 +38,18 @@ class Board
       @grid[i][-1 * (i + 1)] == marker
     end
     false
+  end
 
+  def [](x,y)
+    @grid[x][y]
+  end
+
+  def []=(x,y,something)
+    if @grid[x][y] == :" " && [:X, :O].include?(something)
+    @grid[x][y] = something
+    else
+      return false
+    end
 
   end
 
@@ -57,9 +68,9 @@ def print_and_check
 end
 @b = Board.new
 print_and_check
-@b.grid[0][2] = :X
+@b[0,2] = :X
 print_and_check
-@b.grid[1][1] = :X
+@b[1,1] = :X
 print_and_check
-@b.grid[2][0] = :X
+@b[2,0] = :X
 print_and_check
